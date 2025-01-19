@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Video Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col md:flex-row h-screen">
+        <!-- Left Column -->
+        <div class="flex-1 bg-blue-900 flex flex-col items-center justify-center p-4">
+            <div class="w-full h-80 mb-4"> <!-- Set a max height -->
+                <video class="w-full h-full object-cover rounded-lg" controls>
+                    <source src="<%= memes[0].videoUrl %>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <form action="/vote" method="POST">
+                <input type="hidden" name="memeId" value="<%= memes[0]._id %>">
+                <button type='submit' class="bg-black text-white rounded-lg p-2 mb-4">
+                    <i class="fas fa-skull"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Right Column -->
+        <div class="flex-1 bg-orange-400 flex flex-col items-center justify-center p-4">
+            <div class="w-full h-80 mb-4"> <!-- Set a max height -->
+                <video class="w-full h-full object-cover rounded-lg" controls>
+                    <source src="<%= memes[1].videoUrl %>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <form action="/vote" method="POST">
+                <input type="hidden" name="memeId" value="<%= memes[1]._id %>">
+                <button class="bg-black text-white rounded-lg p-2 mb-4">
+                    <i class="fas fa-skull"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
